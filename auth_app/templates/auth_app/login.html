@@ -10,7 +10,22 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-primary">Login page, welcome</h1>
+        <h1 class="text-primary">Login</h1>
+        <div class="card">
+            <div class="card-body">
+                <form class="form" method="POST">{% csrf_token %}
+                    <div class="mb-3">
+                        <label for="userName" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="userName" name="userName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="userPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="userPassword" name="userPassword">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User 
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required 
 
-# Create your views here.
-
+@login_required
 def home(request):
     return render(request, 'auth_app/index.html', {})
 
@@ -35,3 +35,7 @@ def user_login(request):
         else:
             return HttpResponse("User not found!")
     return render(request, 'auth_app/login.html', {})
+
+def user_logout(request):
+    logout(request)
+    return redirect('login-page')

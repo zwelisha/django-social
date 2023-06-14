@@ -3,12 +3,30 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from .models import Post 
+from django.views.decorators.csrf import csrf_exempt
+from django.template import loader
 
 
 @login_required
 def home(request):
-    return render(request, "auth_app/index.html", {})
+    users = User.objects.all()
+    return render(request, "auth_app/index.html", {'users':users})
 
+@login_required
+@csrf_exempt
+def timeline(request):
+    loggeduser = request.user 
+    user_id = ''
+    if request.method == "POST":
+        print("Executed timeline post req")
+        clicked_user_id = request.POST.get("user_id")
+        print(clicked_user_id)
+        print(type(clicked_user_id))
+    # user_id = request.POST['user_id']
+    # print(user_id)
+    print("*****Done executing timeline pst req****")
+    return render(request, "auth_app/timeline.html", {})
 
 def register(request):
     if request.method == "POST":

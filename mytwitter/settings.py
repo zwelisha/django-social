@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "auth_app",
     "bootstrap5",
+    "jquery"
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,4 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = "login-page"
+TIMELINE_URL = "timeline-page"

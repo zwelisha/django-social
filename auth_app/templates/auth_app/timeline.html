@@ -16,14 +16,7 @@
         <hr>
         <h6 class="h6">Checkout what our users have been up to!</h6>
         <hr>
-        {% for user in users %}
-            <div class="card mt-5">
-                <div class="card-body">
-                    <a href="{% url 'logout'%}"><img class="rounded-circle img-thumbnail" src="{% static 'images/person100.png' %}"></a>
-                    <p class="card-title text-primary mt-2">{{ user.first_name }} {{ user.last_name}}</p>
-                </div>
-            </div>
-        {% endfor %}
+       
         <a type="button" class="btn btn-primary mt-3 mb-5" href="{% url 'logout'%}">Logout</a>
     </div>
     

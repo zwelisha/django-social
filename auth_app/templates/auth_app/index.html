@@ -22,9 +22,8 @@
         {% for user in users %}
             <div class="card mt-5">{% csrf_token %}
                 <div class="card-body">
-                    <p id="user-details">{{user.id}}</p>
-                    <a id="home-user-card" href="#"><img class="rounded-circle img-thumbnail" src="{% static 'images/person100.png' %}"></a>
-                    <p id="user-details" class="card-title text-primary mt-2"> {{ user.first_name }} {{ user.last_name}}</p>
+                    <a class="social-user" id="{{ user.id }}" href="#"><img class="rounded-circle img-thumbnail" src="{% static 'images/person100.png' %}"></a>
+                    <p class="card-title text-primary mt-2"> {{ user.first_name }} {{ user.last_name}}</p>
                 </div>
             </div>
         {% endfor %}

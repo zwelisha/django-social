@@ -15,18 +15,21 @@ def home(request):
 
 @login_required
 @csrf_exempt
-def timeline(request):
+def posts(request):
     loggeduser = request.user 
-    user_id = ''
+    user_id = " "
     if request.method == "POST":
         print("Executed timeline post req")
-        clicked_user_id = request.POST.get("user_id")
-        print(clicked_user_id)
-        print(type(clicked_user_id))
+        user_id = request.POST.get("user_id")
+        print("***************User id******************")
+        print(user_id)
+        print(type(user_id))
+        print("***************User id******************")
     # user_id = request.POST['user_id']
     # print(user_id)
-    print("*****Done executing timeline pst req****")
-    return render(request, "auth_app/timeline.html", {})
+    print("*****Done executing timeline post req****")
+    return render(request, "auth_app/posts.html", {'user_id':user_id})
+
 
 def register(request):
     if request.method == "POST":
@@ -61,3 +64,6 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect("login-page")
+
+# def timeline(request):
+#     pass 

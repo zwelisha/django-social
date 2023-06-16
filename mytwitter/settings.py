@@ -126,4 +126,3 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = "login-page"
-TIMELINE_URL = "timeline-page"
